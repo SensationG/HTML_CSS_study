@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!-- arguments 获取非行间样式 -->
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>获取非行间样式</title>
+        <!-- 写在head的或者外部的都是非行间样式 -->
+        <style>
+            #div1
+            {
+                width: 200px; 
+                height: 200px; 
+                background: red;
+            }
+        </style>
+        <script>
+            function getStyle(odiv,name)
+            {
+                if(odiv.currentStyle)//undefined为false
+                {
+                   return odiv.currentStyle[name];
+                }
+                else
+                {
+                   return getComputedStyle(odiv,false)[name];
+                }
+            };
+            window.onload=function()
+            {
+                var odiv = document.getElementById("div1");
+                //获取非行间样式
+                //alert(odiv.currentStyle.width); //仅IE 可以用，其他显示undefined
+                //alert(getComputedStyle(odiv,false).width); //仅chrome firefox
+                // alert(odiv.currentStyle)
+                //思路：先判断属性在浏览器中是否undefined，再决定使用哪个
+                alert(getStyle(odiv,"width"));
+            };
+        </script>
+    </head>
+    <body>
+        <div id="div1"></div>
+    </body>
+</html>

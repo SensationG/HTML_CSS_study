@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!-- JS面向对象 object空对象 -->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>JS面向对象</title>
+        <script>
+            window.onload=function()
+            {
+              var t1 = new Array(12,31,31,21,433);
+              var t2 = new Array(21,31,5,1,231);
+
+              Array.prototype.sum=function()
+              {
+                  var result=0;
+                  for(var i=0;i<this.length;i++)
+                  {
+                     result+=this[i];//this指代本数组
+                  }
+                  return result;
+              }
+
+              alert(t1.sum());
+              alert(t2.sum());
+            };
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

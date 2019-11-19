@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>控制边框border</title>
+    <style type="text/css">
+        /* 边框 第一种写法 分开写法 */
+        .class1 {
+            border-color: lightblue;
+            border-style: solid; /* 设置变宽样式 有多种 必须设置否则不会显示边框*/
+            border-width: 3px; /* 设置边框粗细 */
+            border-top-color: lightcoral; /* 可以单独给每条边设置颜色 这是上边*/
+            border-bottom-style:ridge; /* 可以单独给每条边设置样式 这是下边 */
+            border-radius: 10px/20px; /* 给边框设置圆角 第一个参数是圆心与左边的距离 第二个是圆心与上边的距离*/
+            background: yellow; /* 设置边框内背景颜色 */
+            /* background-image: url(); url里面写图片路径*/
+        }
+        /* 边框 第二种写法 整合写法 */
+        .class2 {
+            border: 5px solid slategrey;
+            border-top: 10px dashed yellow; /* 可以单独给每条边设置样式/颜色 */
+        }
+    </style>
+</head>
+<body>
+    <!-- 使用css设置边框 -->
+    <p class="class1">边框</p>
+    <p class="class2">边框2</p>
+</body>
+</html>

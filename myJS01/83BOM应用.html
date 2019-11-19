@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!-- bom 
+    open的使用
+-->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <script>
+            window.onload=function()
+            {
+                var oBtn = document.getElementById("div1");
+
+                oBtn.onclick=function()
+                {
+                    //open第一个参数：目标网址
+                    var oNewWin=window.open('about:blank','_blank');//开启新分页
+                    // open第二个参数 _blank 另开一个新的 本窗口还在
+                    // _self 覆盖原窗口 
+
+                    //往新窗口添加文字/也可以放代码
+                    oNewWin.document.write('abjsiq');
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <input id="div1" type="button" value="open new window"/>
+    </body>
+</html>

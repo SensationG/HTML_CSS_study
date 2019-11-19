@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!-- src 运动框架 -->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <style>
+            #div1 {width:100px; height: 100px;background: red;}
+        </style>
+        <title>Document</title>
+        <script src="js/move2.js"></script>
+        <script>
+            window.onload=function()
+            {
+                var oDiv = document.getElementById("div1");
+                oDiv.onmouseover=function()
+                {
+                    //传入函数，在最后执行，可以不断叠加进去
+                    startMove(oDiv,'width',300,function(){
+                        startMove(oDiv,'height',300);
+                        //还可以执行别的
+                    });//先执行width，完成后再执行height
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div id="div1"></div>
+    </body>
+</html>

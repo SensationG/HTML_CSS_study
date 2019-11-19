@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>嵌入图片</title>
+</head>
+<body>
+    <!-- 1 图片设置 img -->
+    <img src="img\asd.png">
+    <img src="img\asd.png" width="128px"> <!--如果图片只设置width 那么height会自适应-->
+    <img src="img\asd.png" width="128px" height="128px"> <!--想要调整尺寸，width和height都要设置-->
+
+    <img src="img\asd11.png" alt="下载"> <!--alt为备用内容，当src链接失效的时候，会显示alt中的内容-->
+
+    <br><br>
+
+    <!-- 2 创建图片超链接 配合a标签 -->
+    <a href="demo01.html"> 
+        <img src="img\asd.png">
+    </a>
+
+    <br><br>分区响应图<br>
+
+    <!-- 3 创建客户端分区响应图  ------------important
+            通过点击某张图像上的不同须臾让浏览器到不同URL上 
+            元素： <map> :客户端分区响应图的关键元素
+                  <area> : 可以有多个，每个各自代表图像上可以被点击的一块区域 带有的属性：
+                          1 Href 
+                          2 Alt 
+                          3 Shape值(4种) 
+                            3.1 Rect:这个值代表一个矩形区域，用四个逗号分割的整数组成 四个整数代表：图像左边缘x 上边缘y 右边缘x 下边缘y
+                                使用<form><input type="image" src="img\asd.png" ></form> 获取相应的坐标
+                            3.2 Circle:代表圆形区域 四个整数代表图像左边缘x 上边缘y 右边缘x 下边缘y
+                            3.3 Poly: 代表多边形 至少包含六个逗号分割的整数组成，每一对数字代表多边形顶点
+                            3.4 Dafault 代表默认区域，覆盖整张图片，不需要coords值
+    -->
+    
+    <!-- 制作分区响应图时并不需要a标签 -->
+
+    <img src="img\asd.png" width="128px" usemap="#map1"> <!--usemap 对应 map的name 要加#号-->
+
+    <map name="map1"> <!--1 rect举例-->
+        <area href="demo01.html" shape="rect" coords="33,12,102,81" target="_blank"> <!-- coords的四个坐标是相对图片的坐标 而非相对网页的坐标-->
+        <area href="demo02.html"> <!---以下类推-->
+        <area href="demo03.html">
+        <area href="demo04.html">
+        <area href="demo05.html">
+    </map>
+
+
+
+</body>
+</html>

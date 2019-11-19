@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!--使用函数传参2 来设置图形填充颜色-->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style>
+            #div1{ /* 默认的div设置 */
+                width: 160px;
+                height: 160px;
+                background: red;
+            }
+        </style>
+        <script>
+            function setColor(name,value){//传入要改变的属性和属性对应要改变成的值
+                var odiv = document.getElementById("div1");
+                odiv.style[name]=value;
+            }
+        </script>
+    </head>
+    <body>
+        <input type="button" value="变宽"  onclick="setColor('width','200px')"/> <!--给js传参-->
+        <input type="button" value="变长"  onclick="setColor('height','200px')"/>
+        <input type="button" value="变蓝"  onclick="setColor('background','blue')"/>
+        <div id="div1">
+        </div>
+    </body>
+</html>

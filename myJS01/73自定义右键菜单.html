@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!-- 默认行为 自定义右键菜单 -->
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style>
+          * {margin:0;padding:0;list-style:none;}
+          #div1 {position:absolute; width:80px; background: #cccccc;
+          border: 1px solid black;display: none;}
+        </style>
+        <script>
+            //系统菜单事件，点击右键时发生
+            document.oncontextmenu=function(ev) 
+            {
+                var oDiv = document.getElementById("div1");
+
+                oDiv.style.display="block";
+                //获取鼠标点击的位置，设置菜单位置与鼠标位置同步
+                oDiv.style.left = event.clientX+'px';
+                oDiv.style.top = event.clientY+'px';
+
+                return false;//阻止系统菜单弹出
+            }
+            //这里不会发生冒泡事件 因为都是document级别的
+            //点击页面其他空白部分 菜单消失
+            document.onclick=function()
+            {
+                var oDiv = document.getElementById("div1");
+                oDiv.style.display="none";
+            }
+        </script>
+    </head>
+    <body>
+        <div id="div1">
+            <ul>
+                <li>aaa</li>
+                <li>bbb</li>
+                <li>ccc</li>
+                <li>ddd</li>
+            </ul>
+        </div>
+    </body>
+</html>

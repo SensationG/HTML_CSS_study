@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!-- 多物体运动 之 多个div变宽+缓冲运动 -->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style>
+            div {width: 100px;height: 50px;background: red;margin: 10px; border: 10px solid beige;}
+        </style>
+        <script>
+            window.onload=function()
+            {
+                var oDiv = document.getElementsByTagName("div");
+                for(var i=0;i<oDiv.length;i++)
+                {
+                    oDiv[i].timer = null; //给物体加自定义属性
+                    oDiv[i].current = null;
+                    oDiv[i].onmouseover=function()
+                    {
+                        //传入this以判断该让哪个物体运动
+                        startMove(this,'width',400);
+                    }
+                    oDiv[i].onmouseout=function()
+                    {
+                        startMove(this,'width',100);
+                    }
+                }
+            }
+            
+            function getStyle(obj,name)
+            {
+                if(obj.currentStyle)
+                {
+                    return obj.currentStyle[name];
+                }
+                else
+                {
+                    return getComputedStyle(obj,false)[name];
+                }
+            }
+            
+            function startMove(obj,pin,iTarget)
+            {
+                //每个物体必须设定独立定时器 否则会出错 以 obj.定时器 来确定
+                clearInterval(obj.timer);
+                
+                obj.timer=setInterval(function(){
+                    var speed = (iTarget -obj.current)/6;
+                    speed=speed>0?Math.ceil(speed):Math.floor(speed);//缓冲运动速度必须取整
+                    //使用getStyle函数来获取物体属性
+                    obj.current =  parseInt(getStyle(obj,pin));
+                    if(obj.current==iTarget)
+                    {
+                        clearInterval(obj.timer);
+                    }
+                    else
+                    {
+                        obj.style[pin]=obj.current+speed+'px';
+                    }
+
+                },30);
+            }
+        </script>
+    </head>
+    <body>
+        <div></div>
+        <div></div>
+        <div></div>
+    </body>
+</html>

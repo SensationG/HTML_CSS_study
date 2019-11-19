@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!-- JS运动基础 侧边栏展开收缩案例 -->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style>
+            #div1 {width: 150px; height: 200px;background: green;position:absolute; 
+            left: -150px;}
+            /* left: -150px; 为侧边栏默认收起 使用JS操作left值控制展开与收起 */
+            #div1 span{position: absolute;width: 20px;height: 60px;line-height: 20px;
+                background: beige;right: -20px;top: 70px;}
+        </style>
+        <script>
+            window.onload=function()
+            {
+                var oDiv = document.getElementById("div1");
+                //鼠标移入事件
+                oDiv.onmouseover=function()
+                {
+                    start(0,15);
+                }
+                //鼠标移出事件
+                oDiv.onmouseout=function()
+                {
+                    start(-150,-15);
+                }
+            };             
+            var timer = null;//需要定义全局 才能在每次运行之前关闭
+            //使用上一节教的运动框架
+            function start(wall,speed)
+            {
+            
+                var oDiv = document.getElementById("div1");
+                clearInterval(timer);//保证每次点击按钮只有一个定时器
+
+                timer = setInterval(function(){
+                    //传入停止运动的位置 关闭定时器
+                    if(oDiv.offsetLeft==wall)
+                    {
+                        clearInterval(oStart);
+                    }
+                    else  //不用else会出现 物体到达位置 每次点击还会向前
+                    {
+                        oDiv.style.left = oDiv.offsetLeft+speed+'px';
+                    }
+                },30);//时间取30，一般不改变
+            };  
+        </script>
+    </head>
+    <body>
+        <div id="div1">
+            <span>分享到</span>
+        </div>
+    </body>
+</html>

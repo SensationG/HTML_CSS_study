@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!-- 插入节点 
+    父级.insertBefore(节点，在哪个节点之前) -->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <script>
+            window.onload=function()
+            {
+                var btn1 = document.getElementById("btn1");
+                var oUl = document.getElementById("ul1");
+                var t1 = document.getElementById("t1");
+
+                btn1.onclick=function()
+                {
+                    //createElement 创建的新节点类型：li
+                    var oLi = document.createElement("li");
+                    //先把ul中所有li都选出来，才能写在哪里插入
+                    var aLi = oUl.getElementsByTagName("li");
+
+                    oLi.innerHTML=t1.value;//li的value属性只能为数字且这里无效无法使用
+
+                    //把创建后的节点的父节点设置为ul1 这样节点就会被添加到指定ul下
+                    //父级.insertBefore(节点,在哪个节点之前); 从中间插入节点
+                    //考虑到ie兼容问题，当第一次插入时，不存在aLi[0]，所以要先判断
+                    if(aLi.length>0)
+                    {
+                        oUl.insertBefore(oLi,aLi[0]);
+                    }
+                    else
+                    {
+                        oUl.appendChild(oLi);
+                    }
+                    
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <input id="t1" type="text"/>
+        <input id="btn1" type="button" value="创建li"/>
+        <ul id="ul1">
+            
+        </ul>
+    </body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<!--案例：点击按钮 text框出现文字-->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <script>
+            //只要html中有的属性 js中都可以设置
+            function setText(){
+                var text1 = document.getElementById("t1");//获取body中text框的id
+                text1.value="改文字出现";//设置value属性的值
+                text1.title="这是提示";
+            }
+        </script>
+    </head>
+    <body>
+        <input id="t1" type="text" />
+        <input type="button" value="改文字" onclick="setText()"/>
+    </body>
+</html>

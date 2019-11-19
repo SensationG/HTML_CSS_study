@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<!-- DOM表格操作 
+    小案例 鼠标移入高亮，移除颜色恢复，且保留原来的隔行变色效果 -->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <script>
+            window.onload=function()
+            {
+                var oTab = document.getElementById("tab1");
+                
+                var btn = document.getElementById("btn1");
+                var name = document.getElementById("name");
+                var age = document.getElementById("age");
+                
+                btn.onclick=function()
+                {
+                    //创建tr和td用来存放
+                    var oTr = document.createElement("tr");
+
+                    var oTd = document.createElement("td");
+                    //自动设置id 思路：表格行数加1（第一行为目录不算）
+                    oTd.innerHTML=oTab.tBodies[0].rows.length+1;
+                    oTr.appendChild(oTd); //设置父类
+
+                    var oTd = document.createElement("td");
+                    //设置名字
+                    oTd.innerHTML=name.value;
+                    oTr.appendChild(oTd); //设置父类
+
+                    var oTd = document.createElement("td");
+                    //设置年龄
+                    oTd.innerHTML=age.value;
+                    oTr.appendChild(oTd); //设置父类
+
+                     //添加删除功能
+                     var oTd = document.createElement("td");
+                     oTd.innerHTML="<a href='javascript:;''>删除</a>";
+                     oTr.appendChild(oTd);
+
+                    //在刚刚新建的oTd 们中搜搜标签为a 设置onclick
+                    //因为只有一个a标签 所以默认选第一个设置事情
+                     oTd.getElementsByTagName("a")[0].onclick=function()
+                     {  //删除父级的父级tr
+                         oTab.tBodies[0].removeChild(this.parentNode.parentNode);
+                     };
+
+                    oTab.tBodies[0].appendChild(oTr);//把整个tr放入tbody
+                    
+                   
+                };
+            };
+        </script>
+    </head>
+    <body>
+        <!-- 以下是表格的写法 -->
+        姓名:<input id="name" type="text"/>
+        年龄:<input id="age" type="text"/>
+        <input id="btn1" type="button" value="添加"/>
+        <table id="tab1" border="1" width="500">
+            <thead>
+                <td>ID</td>
+                <td>姓名</td>
+                <td>年龄</td>
+                <td>删除</td>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Blue</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>伟大</td>
+                    <td>23</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>请问</td>
+                    <td>23</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>我去饿</td>
+                    <td>30</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>请问去</td>
+                    <td>13</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>矮戳</td>
+                    <td>23</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>阿瓦达</td>
+                    <td>56</td>
+                </tr>
+            </tbody>
+
+        </table>
+    </body>
+</html>

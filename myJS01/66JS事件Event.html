@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<!-- JS事件基础 获取鼠标坐标 -->
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <script>
+            window.onload=function()
+            {
+                //给整个页面设置点击事件
+                document.onclick=function(ev) 
+                {
+                    //鼠标坐标获取，兼容性判断
+                    var oEvent = ev||event;//自动取为真的值
+                    alert(oEvent.clientX+','+oEvent.clientY);
+                }
+            }
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

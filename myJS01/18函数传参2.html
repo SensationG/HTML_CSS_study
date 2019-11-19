@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<!--使用传参在JS中设置标签属性 这样就更加灵活 可以变-->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <script>
+            function test1(name){
+                var t1 = document.getElementById("text1");
+                t1[name] = '函数传参2成功';
+            }
+        </script>
+    </head>
+    <body>
+        <input id="text1" type="text"/>
+        <input type="button" value="改变文字" onclick="test1('value')"/>
+    </body>
+</html>

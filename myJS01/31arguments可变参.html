@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!-- arguments 可变参/不定参 
+    当无法确定function中需要传递的参数的个数的时候使用（即不确定要定义几个形参）
+-->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>argument</title>
+        <script>
+            function plus() //这里不用设置形参
+            {
+                var result = 0;
+                for(var i=0;i<arguments.length;i++) //长度使用length方法
+                {
+                    result+=arguments[i]; //arguments当数组使用
+                }
+                return result;
+            }
+            alert(plus(3,3,1,5,6)); //不确定需要传入几个值
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

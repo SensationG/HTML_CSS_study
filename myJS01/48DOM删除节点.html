@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!-- DOM删除节点 
+    父级.removeChild(节点);
+-->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>删除节点</title>
+        <script>
+            window.onload=function()
+            {
+                var oUl = document.getElementById("ul1");
+                var aa = oUl.getElementsByTagName("a");
+
+                for(var i=0;i<aa.length;i++)
+                {
+                    aa[i].onclick=function()
+                    {
+                        //this.parentNode是当前点击a href的父节点li
+                        oUl.removeChild(this.parentNode);
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <ul id="ul1">
+            <li>adasd<a href="javascript:;">删除</a></li>
+            <li>2ad<a href="javascript:;">删除</a></li>
+            <li>3dawd<a href="javascript:;">删除</a></li>
+            <li>4adaw<a href="javascript:;">删除</a></li>
+        </ul>
+    </body>
+</html>

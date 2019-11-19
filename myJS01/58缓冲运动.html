@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!-- 缓冲运动 -->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>缓冲运动</title>
+        <style>
+            #div1 {width: 100px;height: 100px; background: red;position: absolute;
+            left: 0px;top: 50px}
+        </style>
+        <script>
+            var time;
+            function startMove()
+            {
+                var end = 300;//终点位置
+                var oDiv = document.getElementById("div1");
+
+                time=setInterval(function(){
+                    var speed = (end-oDiv.offsetLeft)/10; //速度变化
+                    //解决px不能是小数的bug 根据左右运动区分要如何取整
+                    speed=speed>0?Math.ceil(speed):Math.floor(speed);
+                    //因为速度到终点之后就会变0 所以这里不要设置终点停止
+                    oDiv.style.left = oDiv.offsetLeft + speed +'px';
+                },30);
+            }
+        </script>
+    </head>
+    <body>
+        <input type="button" value="开始运动" onclick="startMove()"/>
+        <div id="div1">
+
+        </div>
+    </body>
+</html>

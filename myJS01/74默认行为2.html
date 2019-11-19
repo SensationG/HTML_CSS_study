@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!-- 默认行为 阻止输入框输入内容/
+        只允许输入数字/退格 
+-->
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <script>
+           window.onload=function()
+           {
+               var oTxt = document.getElementById("txt1");
+            
+               oTxt.onkeydown=function(ev)//输入框事件 默认行为
+               {
+                 var oEvent = ev||event;
+
+                 //如果用户 按的不是退格 并且也不是数字 
+
+                 //只能输入数字 在数字范围之外的码并且不等于8（退格） 返回false 即不能输入
+                 if(oEvent.keyCode!=8 && (oEvent.keyCode<48 || oEvent.keyCode>57))
+                 {
+                    return false;//阻止键入输入框内容 bug:仍可输入中文
+                 }
+               };
+
+           }
+        </script>
+    </head>
+    <body>
+        <input type="text" id="txt1"/>
+    </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!-- JS面向对象 选项卡例子 
+    重点在于面向对象 而非div布局
+    步骤
+    1.使得函数没有嵌套（使用全局变量，分离点击事件函数）
+    未完成
+-->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>JS面向对象</title>
+        <style>
+            #div1 input {background: white;}
+            #div1 input.active {background: yellow;}
+            #div1 div {width: 200px; height:  200px;background: #cccccc;display: none;}
+        </style>
+        <script>
+            var oDiv=null;
+            var aBtn=null;
+            var aDiv=null;
+
+            window.onload=function()
+            {
+                oDiv = document.getElementById("div1");
+                aBtn = oDiv.getElementsByTagName("input");
+                aDiv = oDiv.getElementsByTagName("div");
+
+                for(var i=0;i<aBtn.length;i++)
+                {
+                    aBtn[i].index=i;
+                    aBtn[i].onclick=fnClick;
+                };
+            };
+
+            function fnClick()
+            {
+                for(var j=0;j<aBtn.length;j++)
+                {
+                    aBtn[j].className="";
+                    aDiv[j].style.display="none";
+                }
+                this.className="active";
+                aDiv[this.index].style.display="block";
+            };
+        </script>
+    </head>
+    <body>
+        <div id="div1">
+            <input class="active" type="button" value="aaa"/>
+            <input type="button" value="bbb"/>
+            <input type="button" value="ccc"/>
+            <div style="display: block">aaa</div>
+            <div>bbb</div>
+            <div>ccc</div>
+        </div>
+    </body>
+</html>

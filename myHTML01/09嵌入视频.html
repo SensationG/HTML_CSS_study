@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>嵌入视频</title>
+    </head>
+    <body>
+        <!-- HTML5 支持直接在浏览器中播放音频和视频文件，不需要使用flash插件 插件是令浏览器崩溃的重要原因，特别是flash -->
+        <!-- 使用<video></video>标签 
+            属性：1.src 2.Height 3.Width 4.Autoplay 5.Preload 6.controls 7.Loop 8.poster 9.muted
+        -->
+
+        <video src="img\DJI_20190827_111551_793_video.MP4" height="500px" controls preload="None" loop poster="img\asd.png">
+            <!--以上：1.src导入视频 2.height/width设置大小 3.autoplay自动播放（但测试无效） 4.controls(显示播放控件)
+                  5.preload=" " :预先载入视频,3个属性(None,Metadata(只载第一帧),Auto)
+                  6.Loop 循环播放
+                  7.poster="封面图片路径" 显示封面图片路径
+            -->
+            
+            <!-- 兼容性问题：不同的浏览器支持的视频格式不同 所以要做兼容性处理 source是备用线路 当上面无法播放时播放-->
+            <source src="img\DJI_20190827_111551_793_video.MP4" type="video/mp4"> <!--type是播放器播放的格式-->
+            <!-- <source src="img\DJI_20190827_111551_793_video.ogv" type="video/ogv"> 另一种格式-->
+        </video> 
+    </body>
+</html>

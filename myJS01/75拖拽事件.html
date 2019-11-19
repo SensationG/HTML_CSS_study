@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!-- 拖拽事件 
+    正方形可拖拽
+-->
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style>
+            #div1{width: 200px; height: 200px; background: red;position: absolute;}
+            /* 必须绝对定位，才能控制物体的位置 */
+        </style>
+        <script>
+            window.onload=function()
+            {
+                oDiv = document.getElementById("div1");
+                //由横向距离和纵向距离组成
+                var disY=0;
+                var disX=0;
+                //鼠标按下时
+                oDiv.onmousedown=function(ev)
+                {
+                    //创建事件
+                    var oEvent = ev||event;
+                    //计算鼠标与div的左上角的距离  
+                    disX = oEvent.clientX - oDiv.offsetLeft;//横向距离
+                    disY = oEvent.clientY - oDiv.offsetTop;//纵向距离
+
+                     //鼠标移动时 div位置跟随鼠标移动
+                     //使用document否则鼠标拖太快超过图形界面 就会自动停止运动
+                     document.onmousemove=function(ev)
+                    {
+                        //创建事件
+                        var oEvent = ev||event;
+                        //改变div位置 鼠标的实时距离-鼠标与div左上角距离 就是div位置
+                        l = oEvent.clientX - disX;
+                        z = oEvent.clientY - disY;
+                        //判断图形是否出界 禁止图形出界
+                        if(l<0)
+                        {
+                            l=0;
+                        }
+                        else if(l>document.documentElement.clientWidth-oDiv.offsetWidth)
+                        {
+                            //页面可视区域宽度
+                            l=document.documentElement.clientWidth-oDiv.offsetWidth;
+                        }
+
+                        if(z<0)
+                        {
+                            z=0;
+                        }
+                        oDiv.style.left = l +'px';
+                        oDiv.style.top = z +'px';
+                    };
+
+                    //鼠标抬起 设置move方法为空 否则会一直移动
+                    //在document层 才能保证全局 有效 否则移到浏览器的上面 up会无法感应
+                    document.onmouseup=function()
+                    {
+                        document.onmousemove=null; //把前面移动事件清空
+                        document.onmouseup=null; //清楚垃圾缓存
+                    };
+                };
+            }
+        </script>
+    </head>
+    <body>
+        <div id="div1"></div>
+    </body>
+</html>

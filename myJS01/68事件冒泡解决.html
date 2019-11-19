@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!-- 事件冒泡 解决 -->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style>
+            #div1 {width: 100px; height: 100px; background: #cccccc;display: none}
+        </style>
+        <script>
+            window.onload=function()
+            {
+                var oBtn = document.getElementById("btn1");
+                var oDiv = document.getElementById("div1");
+
+                //点击按钮下拉框显示
+                oBtn.onclick=function(ev)
+               {
+                   var oEvent=ev||event;
+                   oDiv.style.display='block';
+                   oEvent.cancelBubble=true; //消除冒泡影响
+               };
+               //点击其余空白处，下拉框隐藏
+               document.onclick=function()
+               {
+                   oDiv.style.display='none';
+               };
+            }
+        </script>
+    </head>
+    <body>
+        <input id="btn1" type="button" value="按钮"/>
+        <div id="div1"></div>
+    </body>
+</html>

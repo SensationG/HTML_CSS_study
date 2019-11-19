@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>创建表单</title>
+</head>
+<body>
+    <!-- 关键表单元素  
+        <form> 属性：1.method 2.action
+        <input>   属性：Type name ....
+    -->
+
+    <form>
+        <!-- text单行文本框 -->
+        <!-- input不写type的话默认type="text" -->
+        <input type="text" value="填充" /> <!--单行文本框-->
+        <br><br>
+        <input type="text" placeholder="文本框暗字提示" /> <!--placeholder 文本框暗字提示-->
+        <br><br>
+        <input type="text" placeholder="maxlength" maxlength="8"/> <!--maxlength最大长度限制-->
+        <br><br>
+        <input type="text" value="拓宽文本框" size="50"/>  <!--文本框的size 可大可小-->
+        <br><br>
+        <input type="text" value="文本框只读" readonly /> <!--readonly文本框只读-->
+        <br><br>
+        <input type="password" placeholder="输入密码"" /> <!--密码模式-->
+        <br><br>
+
+        <!-- 多行文本框 -->
+        <textarea rows="20">aaaa</textarea>  <!-- rows设定初始行数 -->
+    </form>
+</body>
+</html>

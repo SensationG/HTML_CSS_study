@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css换肤</title>
+    <link id="l1" rel="stylesheet" type="text/css" href="css/theme1.css"/>
+    <script>
+        function c1(){
+            var oL = document.getElementById("l1");
+            oL.href="css/theme1.css";
+        }
+        function c2(){
+            var oL = document.getElementById("l1");
+            oL.href="css/theme2.css";
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="皮肤1" onclick="c1()"/>
+    <input type="button" value="皮肤2" onclick="c2()"/>
+</body>
+</html>

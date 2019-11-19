@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!--			在JS中为标签添加onclick事件（JS需要写在标签后）      
+                因为加载head时还没加载body 标签还未加载
+                这时若写在head里的function就找不到标签的id
+                就不用添加行间事件
+-->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width= , initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <script>
+            window.onload=function(){//window.onload 即在页面加载完成后加载       
+                var bt1 = document.getElementById("bt1");
+                function abc(){
+                    alert("abc");
+                }
+                bt1.onclick=abc;
+                //匿名函数写法 
+                // var bt1 = document.getElementById("bt1");
+                // bt1.onclick=function (){
+                //     alert("abc");
+                // }
+            };
+        </script>
+    </head>
+    <body>
+        <input id="bt1" type="button" value="js添加事件"/>
+        
+    </body>
+</html>

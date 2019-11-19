@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<!-- 数组的splice操作 -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        window.onload=function()
+        {
+            var arr=[1,2,3,4,5,6];
+            arr.splice(2,3);//删除:splice(起点，长度)
+            arr.splice(2,0,"a","b","c");//从2起删除长度为0，添加a,b,c
+            arr.splice(2,3,"a","b","c");//从2起删除长度为3，添加a,b,c 替换作用
+            alert(arr);
+            a.join("--");
+        }
+      
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

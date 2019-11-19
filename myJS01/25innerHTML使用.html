@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!--
+知识点：1.innerHTML：往div里面放东西或读取东西
+        可以往里塞HTML的标签 例如<h2>这是标题</h2>
+-->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>innerHTML</title>
+        <style>
+            #div1{
+                width: 100px;
+                height: 100px;
+                border: 2px solid bisque;
+            }
+        </style>
+        <script>
+            window.onload=function(){
+                var btn1 = document.getElementById("btn1");
+                var btn2 = document.getElementById("btn2");
+                var text1 = document.getElementById("text1");
+                var odiv = document.getElementById("div1");
+                //使用innerHTML给div里赋值
+                btn1.onclick=function()
+                {
+                    odiv.innerHTML=text1.value;
+                };
+                //使用innerHTML读取div中的值
+                btn2.onclick=function()
+                {
+                    alert(odiv.innerHTML);
+                };
+               
+            };
+        </script>
+    </head>
+    <body>
+        <input id="text1" type="text"/>
+        <input id="btn1" type="button" value="设置"/>
+        <input id="btn2" type="button" value="读取"/>
+        <div id="div1">
+
+        </div>
+    </body>
+</html>

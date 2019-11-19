@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS过渡</title>
+    <style type="text/css">
+        p {
+            width: 100px;
+            height: 100px;
+            background-color:rgb(28, 199, 230);
+        }
+        p:hover {
+            width: 200px;
+            height: 200px;
+            background-color: rgb(140, 225, 240);
+            transition-delay: 150ms; /* 延迟触发 */
+            transition-duration: 500ms; /* 变化的快慢 通用方法 */
+            /* 以下是快慢在不同浏览器的兼容性写法 为保证浏览器有效运行动画 需要针对不同浏览器写不同的语句 */
+            /* -webkit-transition-duration: ; 针对不同浏览器的兼容性快慢设置模板 */
+            /*-o-transition-duration: 500ms;  欧鹏浏览器 */
+            /* -moz-transition-duration: ; 火狐浏览器 */
+
+            transition-property: all; /* 调整需要过度变化的东西 例如background等 */
+            transition-timing-function: ease-in; /* 过度动画效果设置 预设值有ease-in ease-out ease-in-out linear
+            等 贝塞尔曲线 */
+        }
+    </style>
+</head>
+<body>
+    <p></p>
+</body>
+</html>

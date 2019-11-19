@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--样式（css）的优先级
+    *<标签<class(.)<ID<行间
+    什么是行间：即直接在标签中加的样式
+    对于相同属性，优先级高的会覆盖优先级低的（例如background，如果style（行间）中设置为绿色，
+    然后再设置class的background为其他色，那么不会起作用，因为行间优先级高）
+    因此更改属性时最好更改相同优先级，否则会乱，且不易找到问题所在
+-->
+<!--此案例 绿色是行间样式，红色是class样式 先点绿色就无法变为红色 但先点红色可以变为绿色-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div1{
+            width: 100px;
+            height: 100px;
+            border: 2px solid steelblue;
+        }
+        .box{
+            background: red;
+        }
+    </style>
+    <script>
+        function toRed(){
+            var s1 = document.getElementById("div1");//获取div的id
+            s1.className="box";//设置class样式 bac变红
+        }
+        function toGreen(){
+            var s1 = document.getElementById("div1");
+            s1.style.background="green";//style为行间样式 设为绿
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="变红" onclick="toRed()"/>
+    <input type="button" value="变绿" onclick="toGreen()"/> 
+    <div id="div1">
+    </div>
+</body>
+</html>

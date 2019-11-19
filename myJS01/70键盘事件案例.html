@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<!-- 键盘事件 点击enter 提交输入框内容-->
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>键盘事件</title>
+        <script>
+            document.onkeydown=function(ev)
+            {
+                var oEvent = ev||event;
+                alert(oEvent.keyCode);//点击键盘弹出对应ASCII码
+            }
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

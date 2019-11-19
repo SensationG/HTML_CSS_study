@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!-- DOM表格操作 
+    小案例 鼠标移入高亮，移除颜色恢复，且保留原来的隔行变色效果 -->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <script>
+            window.onload=function()
+            {
+                var oTab = document.getElementById("tab1");
+                var oldcolor;
+                
+                for(var i=0;i<oTab.tBodies[0].rows.length;i++)
+                {
+                    oTab.tBodies[0].rows[i].onmouseover=function()
+                    {//鼠标移入高亮
+                        //记录旧颜色
+                        oldcolor = this.style.background;
+                        this.style.background="green";
+                    }
+                    oTab.tBodies[0].rows[i].onmouseout=function()
+                    {  //鼠标移除颜色恢复
+                        this.style.background=oldcolor;
+                    }
+
+                    if(i%2)
+                    {
+                        oTab.tBodies[0].rows[i].style.background="#CCC";
+                        
+                    }
+                }
+            };
+        </script>
+    </head>
+    <body>
+        <!-- 以下是表格的写法 -->
+        <table id="tab1" border="1" width="200">
+            <thead>
+                <td>ID</td>
+                <td>姓名</td>
+                <td>年龄</td>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Blue</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>伟大</td>
+                    <td>23</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>请问</td>
+                    <td>23</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>我去饿</td>
+                    <td>30</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>请问去</td>
+                    <td>13</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>矮戳</td>
+                    <td>23</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>阿瓦达</td>
+                    <td>56</td>
+                </tr>
+            </tbody>
+
+        </table>
+    </body>
+</html>

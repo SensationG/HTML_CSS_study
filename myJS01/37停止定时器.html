@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!-- 开启/停止定时器 的使用 -->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>开启/停止定时器</title>
+        <script>
+            window.onload=function()
+            {
+                var obtn1 = document.getElementById("btn1");
+                var obtn2 = document.getElementById("btn2");
+                var otime = null;
+                //点击button开启定时器 匿名函数
+                obtn1.onclick=function()
+                {
+                    otime=setInterval(function(){ //接收定时器返回值
+                        alert("定时器");
+                    },2000);
+                }
+                //点击button关闭定时器
+                obtn2.onclick=function()
+                { 
+                    clearInterval(otime); //把开启定时器的返回值放入
+                    //setInterval用clearInterval关闭
+                    //setTimeout用clearTimeout关闭 同理
+                }
+            };
+        </script>
+    </head>
+    <body>
+        <input id="btn1" type="button" value="开启"/>
+        <input id="btn2" type="button" value="关闭"/>
+    </body>
+</html>

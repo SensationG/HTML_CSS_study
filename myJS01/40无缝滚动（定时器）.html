@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!-- 无缝滚动
+    使用定时器实现 物体运动
+-->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>无缝滚动</title>
+        <style>
+            * {margin: 0; padding: 0;}
+            #div1 {width: 732px; height: 108px; margin:200px auto; position: relative;overflow: hidden;}
+            /* div1的长和宽要能容纳4张图片 */
+            #div1 ul {position:absolute; left: 0; top: 0;}
+            #div1 ul li {float: left; width: 178px; height: 108px; list-style: none; margin:1px;}
+            /* ul li 的width，height符合图片分辨率 */
+        </style>
+        <script>
+            window.onload=function()
+            {
+                var oDiv = document.getElementById("div1");
+                var oUl = oDiv.getElementsByTagName("ul")[0];//使用ul标签整体移动
+                var aLi = oDiv.getElementsByTagName("li");
+
+                oUl.innerHTML=oUl.innerHTML+oUl.innerHTML+oUl.innerHTML; //实现3个innerhtml叠加 播放2遍4图
+                //ul宽度重设，否则无法容纳图
+                oUl.style.width=aLi[0].offsetWidth*aLi.length+"px";
+
+                setInterval(function(){ //使用定时器 改变ul位置 实现运动
+                    //当图片滚到第二遍第一张时(图片滚一半)，瞬间将回复首张图的位置 实现一个循环滚动
+                    if(oUl.offsetLeft<-oUl.offsetWidth/2)//当滚过的路径小于图片总宽的一半
+                    {
+                        oUl.style.left =0;
+                    }
+
+                    oUl.style.left=oUl.offsetLeft-2+"px"; //-2 负为向左，正为向右
+                },30);
+            };
+        </script>
+    </head>
+    <body>
+        <div id="div1">
+            <ul>
+                <li><img src="img2\1.png"/></li>
+                <li><img src="img2\2.png"/></li>
+                <li><img src="img2\1.png"/></li>
+                <li><img src="img2\2.png"/></li>
+            </ul>
+        </div>
+    </body>
+</html>

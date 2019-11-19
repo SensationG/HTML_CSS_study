@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!-- DOM
+    getAttribute获取
+    setAttribute操作属性
+    removeAttribute删除
+-->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <script>
+            
+            function setText(){
+                var text1 = document.getElementById("t1");//获取body中text框的id
+                text1.setAttribute("value","改文字出现");//设置value属性的值
+               
+            }
+        </script>
+    </head>
+    <body>
+        <input id="t1" type="text" />
+        <input type="button" value="改文字" onclick="setText()"/>
+    </body>
+</html>

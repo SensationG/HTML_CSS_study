@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!-- 延时提示框
+    鼠标移入头像div区域，跳出详细信息的div，
+    鼠标移到详细信息的div，div保留不消失，鼠标移除详细信息div，
+    详细信息延时（不马上）消失。
+-->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>延时提示框</title>
+        <style>
+            /* css如何设置不在js学习范围 */
+            div{float: left; margin: 10px;}
+            #div1{width: 50px; height: 50px; background: red;} /* 模拟头像 */
+            #div2{width: 250px; height: 180px; background: #ccc; display: none;}
+        </style>
+        <script>
+            window.onload=function()
+            {
+                var oDiv1 = document.getElementById("div1");
+                var oDiv2 = document.getElementById("div2");
+                var oT1 = null; //接收头像的定时器
+                var oT2 = null; //鼠标移开提示框 延时关闭
+
+                oDiv1.onmouseover=function()
+                {
+                    clearTimeout(oT2);
+                    oDiv2.style.display="block";
+                };
+                oDiv2.onmouseout=oDiv1.onmouseout=function()
+                {
+                    oT1=setTimeout(function(){
+                        oDiv2.style.display="none";
+                    },500); //鼠标移开 提示框延时关闭
+                };
+                oDiv2.onmouseover=function()
+                {
+                    clearTimeout(oT1);
+                };
+                oDiv2.onmouseout=function()
+                {
+                    oT2=setTimeout(function(){
+                        oDiv2.style.display="none";
+                    },500); //鼠标移开提示框 提示框延时关闭
+                };
+            };
+        </script>
+    </head>
+    <body>
+        <div id="div1"></div>
+        <div id="div2"></div>
+    </body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>创建表格</title>
+</head>
+<body>
+    <!-- 表格三大元素 <table>:表格框架 <tr>：一行 <td>：一个单元格 它们是递进包含的关系-->
+    <!-- 以下的属性在学CSS时候用处较大 -->
+    <!--  <thead>：表头属性（可以放表格标题栏） <th>：表格标题栏属性 -->
+    <!--  <tbody>:表身属性（放表格内容） -->
+    <!--  <tfoot>:表脚属性 -->
+
+    <!-- 纯table是不显示表格框线的 要加css 这里的border在html5中已经不推荐使用 -->
+    <!-- align="center"设置居中 已经不推荐使用-->
+    <table border="1px" align="center"> 
+        <thead> <!-- 表头属性 -->
+            <tr>
+                <!-- 表格标题栏 有居中效果-->
+                <th>姓名</th>
+                <th>性别</th>
+                <th>密码</th>
+            </tr>
+        </thead>
+        <tbody><!--表身-->
+            <tr>
+                <!-- 第二行 -->
+                <td>admin</td>
+                <td>男</td>
+                <td>123</td>
+            </tr>
+            <tr>
+                <!-- 第三行 -->
+                <td>adminsss</td>
+                <td>男</td>
+                <td>123</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <!-- 表脚属性 -->
+            <td>adminsss</td>
+            <td>男</td>
+            <td>123</td>
+        </tfoot>
+    </table>
+
+    <br>
+    <!-- 不规则的表格 合并单元格-->
+    <table border="1px" align="center"> 
+        <tr>
+            <!-- 表格标题栏 有居中效果-->
+            <th rowspan="2">姓名</th> <!--合并列单元格-->
+            <th>性别</th>
+            <th>密码</th>
+            <th>aaaa</th>
+        </tr>
+        <tr>
+            <!-- 第二行 -->
+            <!-- 上面合并列单元格 这里要先删除 -->
+            <td colspan="2">aaaa</td> <!--合并2个单元格 横-->
+            <td>aaaa</td>
+        </tr>
+        <tr>
+            <!-- 第三行 -->
+            <td>adminsss</td>
+            <td>男</td>
+            <td>123</td>
+            <td>aaaa</td>
+        </tr>
+    </table>
+</body>
+</html>

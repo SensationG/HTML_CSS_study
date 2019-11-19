@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!-- DOM 创建节点 案例
+    模拟邮箱上传文件
+    点击按钮 创建一个新的li
+    -----要点 createElement 创建元素--------
+-->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <script>
+            window.onload=function()
+            {
+                var btn1 = document.getElementById("btn1");
+                var oUl = document.getElementById("ul1");
+                var t1 = document.getElementById("t1");
+
+                btn1.onclick=function()
+                {
+                    //createElement 创建的新节点类型：li
+                    var oLi = document.createElement("li");
+                    oLi.innerHTML=t1.value;//li的value属性只能为数字且这里无效无法使用
+                    //把创建后的节点的父节点设置为ul1 这样节点就会被添加到指定ul下
+                    //父级.appendChild(节点); 此方法节点被添加在末尾
+                    oUl.appendChild(oLi);
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <input id="t1" type="text"/>
+        <input id="btn1" type="button" value="创建li"/>
+        <ul id="ul1">
+            
+        </ul>
+    </body>
+</html>

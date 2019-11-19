@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!-- 模拟邮箱选项 的选择，全选，不选，反选 
+    使用：1.document.getElementsByTagName获取一组元素的ID
+         2.循环
+-->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>模拟邮箱选项</title>
+        <script>
+            window.onload=function(){
+                // 获取button
+                var btn1 = document.getElementById("btn1");
+                // 获取所有勾选框
+                //如果直接使用document.getElementsByTagName获取input 会取到button 
+                //使用div外包的方法可以不取到button 相当于文件夹
+                var odiv = document.getElementById("div1");
+                var che = odiv.getElementsByTagName("input");
+                //控制正选反选的值
+                var a=1;
+                function chc(){
+                    if(a==1)
+                    {//正选
+                        for(var i=0;i<che.length;i++)
+                        {
+                            che[i].checked=true;
+                        }
+                        a=2;//控制值变化
+                    }
+                    else
+                    {//不选
+                        for(var i=0;i<che.length;i++)
+                        {
+                            che[i].checked=false;
+                        }
+                        a=1;//控制值变化
+                    }
+                };
+                //为button添加事件
+                btn1.onclick=chc;
+            };   
+        </script>
+    </head>
+    <body>
+        <input id="btn1" type="button" value="全选/不选"/><br>
+        <div id="div1">
+            <!-- 因为在选取一组标签时会选到btn1 故加一层div -->
+            <input type="checkbox"/><br> <!--模拟邮件勾选框-->
+            <input type="checkbox"/><br> <!--checkbox标签内加check就是选中状态-->
+            <input type="checkbox"/><br>
+            <input type="checkbox"/><br>
+            <input type="checkbox"/><br>
+            <input type="checkbox"/><br>
+            <input type="checkbox"/><br>
+            <input type="checkbox"/><br>
+            <input type="checkbox"/><br>
+            <input type="checkbox"/><br>
+            <input type="checkbox"/><br>
+        </div>
+    </body>
+</html>

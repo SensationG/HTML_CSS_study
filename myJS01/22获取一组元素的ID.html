@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!-- document.getElementsByTagName 获取一组元素的ID 与 使用方法类似数组-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div1{
+            width: 100px;
+            height: 100px;
+            float: left; /* 指横向排列*/
+            border: 1px solid blue;
+            margin: 10px;/* 横向间距 */
+        }
+    </style>
+    <script>
+        window.onload=function()
+        {
+            var ids = document.getElementsByTagName("div");//这里的div指的是标签 非id
+            alert(ids[0].id);
+            ids[0].style.background="red";//设置第一个div标签的颜色
+        };
+    </script>
+</head>
+<body>
+    <div id="div1"></div>
+    <div id="div1"></div>
+    <div id="div1"></div>
+    <div id="div1"></div>
+</body>
+</html>

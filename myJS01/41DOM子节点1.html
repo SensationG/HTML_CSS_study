@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!-- dom操作 
+    在dom中，标签被称作节点
+-->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <script>
+            window.onload=function()
+            {
+                var oUl = document.getElementById("ul1");
+                //alert(oUl.childNodes.length);//计算子节点个数
+                //childNodes方法只使用在IE6-8没问题，否则会把文本节点也算入总结点个数
+
+                for(var i=0;i<oUl.childNodes.length;i++)
+                {
+                    //解决操作节点问题：先判断节点类型，再对需要的节点操作
+                    //nodeType==3 ---> 文本节点
+                    //nodeType==1 ---> 元素节点
+                    if(oUl.childNodes[i].nodeType==1)
+                    {
+                        //把节点（不包括空白的文本节点）背景都设置为红
+                        oUl.childNodes[i].style.background="red"; 
+                    }
+                }
+                
+            }
+        </script>
+    </head>
+    <body>
+        <!-- ul 标签是无序表，需配合li才能使用 -->
+        <ul id="ul1">
+            <li></li>
+            <li></li>
+        </ul>
+
+        fafsfaf ---》这是文本节点（直接输入纯文本）
+    </body>
+</html>

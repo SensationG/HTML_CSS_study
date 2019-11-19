@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!-- 使用定时器制作建议电子时钟 -->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>time</title>
+        <script>
+            function toTm(n) //获取的系统时间处理函数 
+            {
+                if(n<10)
+                {
+                    return '0'+n;//小于10 前面一位补0
+                }
+                else
+                {
+                    return ''+n; //跟空字符串 保证返回的一定是字符串
+                }
+            }
+            window.onload=function()
+            {
+                //定时器实现每秒更新
+                function tick(){ 
+                    var oTime = new Date();//调用系统时间的函数
+                    var oImg = document.getElementsByTagName("img");
+
+                    var str = ""; //用于接收系统时间，s再赋值到图片路径
+                    //此处需要先通过函数toTm转成字符串+是否补0，确保格式正确
+                    str = toTm(oTime.getHours())+toTm(oTime.getMinutes())+
+                        toTm(oTime.getSeconds());//获取系统时间 赋值到字符串
+                    
+                    for(var i=0;i<oImg.length;i++)//遍历图片路径
+                    {
+                        //字符串修改图片路径 实现时间变换
+                        oImg[i].src = 'img/'+str[i]+'.png';
+                    }
+                };
+                //使用下面这种解决了 刷新延迟1秒才出现时间的情况
+                //为什么会出现延迟一秒？因为setInterval需要浏览器打开设定间隔时间才执行
+                tick();//即浏览器一打开就先执行方法
+                setInterval(tick,1000);//每1秒刷新
+            };
+        </script>
+    </head>
+    <body style="color:black; font-size: 50px;">
+        <img src="img\0.png"/>
+        <img src="img\0.png"/>
+        :
+        <img src="img\0.png"/>
+        <img src="img\0.png"/>
+        :
+        <img src="img\0.png"/>
+        <img src="img\0.png"/>
+    </body>
+</html>

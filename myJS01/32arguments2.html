@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!-- 给arguments的各个参数取名字，取代arguments[i]的命名 -->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <script>
+            //此function获取div的行间样式/设置div行间样式
+            function get1(obj,name,value) //这里给arguments[i]设置名字
+            {
+                alert(obj==arguments[0]);//这里返回true 验证argument[0]与obj相等，以此类推
+                if(arguments.length==2)//判断长度，2为获取css，3为修改css
+                {
+                    return obj.style[name]; //相当于obj.style.width
+                }
+                else
+                {
+                    obj.style[name]=value;
+                }
+            };
+            window.onload=function()
+            {
+                //获取标签id
+                var odiv = document.getElementById("div1");
+                //获取div行间样式width,用alert接收
+                alert(get1(odiv,"width")); //返回width值
+                //设置行间样式background
+                //get1(odiv,"background","green");
+            };
+        </script>
+    </head>
+    <body>
+        <div id="div1" style="width: 200px; height:200px; background:red;"></div>
+    </body>
+</html>

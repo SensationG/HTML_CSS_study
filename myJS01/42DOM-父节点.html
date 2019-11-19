@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!-- 使用父节点操作的小案例 
+    点击隐藏按钮 --》获取父节点--》对父节点设置style消失
+-->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <script>
+            window.onload=function()
+            {
+                var aa = document.getElementsByTagName("a");
+
+                for(var i=0;i<aa.length;i++)
+                {
+                    aa[i].onclick=function()
+                    {
+                       this.parentNode.style.display="none";
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <ul id="ul1">
+            <li>dsadwad <a href="javascript:;">隐藏</a></li>
+            <li>2222222 <a href="javascript:;">隐藏</a></li>
+            <li>3333ddd <a href="javascript:;">隐藏</a></li>
+            <li>444441ads <a href="javascript:;">隐藏</a></li>
+            <li>4566adwad <a href="javascript:;">隐藏</a></li>
+            <li>677wad <a href="javascript:;">隐藏</a></li>
+        </ul>
+    </body>
+</html>

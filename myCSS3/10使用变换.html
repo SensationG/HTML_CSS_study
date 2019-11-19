@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>使用变换 图形旋转</title>
+    <style type="text/css">
+        p {
+            width: 100px;
+            height: 100px;
+            background-color: antiquewhite;
+        }
+        p:hover {
+            width: 100px;
+            height: 100px;
+            background-color: antiquewhite;
+            transform: scale(1.5);
+            /* 
+                transform 的属性：
+                1. rotate(45deg) 旋转变换：里面填角度，这里范例是45度
+                2. scale(1.5) 缩放比例(等比缩小或放大)：里面填倍数
+                3. scalex/scaley 缩放比例(只动x或y)
+             */
+             transform-origin: top right; 
+             /* 设置锚点 设置一个点作为中心点进行变换 也可以输入坐标 20px(距离左边) 40px(距离上边) */
+             /* top-right 表示右上角的点 bottom-right 表示底部右边*/
+        }
+    </style>
+</head>
+<body>
+    <p></p>
+</body>
+</html>

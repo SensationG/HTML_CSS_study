@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>创建动画</title>
+    <!-- 过度动画是鼠标放上去后会不停的播放 而过度动画是只会执行一次 -->
+    <style type="text/css">
+        p {
+            width: 100px;
+            height: 100px;
+            background-color:rgb(28, 199, 230);
+        }
+        /* 过度动画 */
+        p:hover {
+            animation-duration: 1600ms;
+            animation-delay: 200ms;
+            animation-name: kaopu; /* 过度动画name 对应@keyframes中 */
+            animation-iteration-count: infinite; /* 重复策略: infinite(无限次) 也可以写具体几次 一来一回算2次*/
+            animation-direction: alternate;/* 到达终点时 再以反方向运行动画 */
+        }
+        @keyframes kaopu {
+            from{ /* from写了之后不会再回到上面的初始值 而是运行这里的from作为初始值 */
+                width: 100px;
+                height: 100px;
+                background-color:rgb(12, 206, 157);
+            }
+            /* 关键帧 from到to等分 */
+            50% {
+                width: 130px;
+                height: 130px;
+                background-color:rgb(46, 112, 96);
+            }
+            75% {
+                width: 170px;
+                height: 170px;
+                background-color:rgb(46, 112, 96);
+            }
+            to{
+                width: 200px;
+                height: 200px;
+                background-color: khaki;
+            }
+        }
+    </style>
+</head>
+<body>
+    <p></p>
+</body>
+</html>

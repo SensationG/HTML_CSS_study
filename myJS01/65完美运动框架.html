@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!-- 完美运动框架的使用 -->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style>
+            #div1 {width:100px; height: 100px;background: red;}
+        </style>
+        <script src="js/move3.js"></script>
+        <script>
+            window.onload=function()
+            {
+                var oBtn = document.getElementById("btn1");
+                var oDiv = document.getElementById("div1");
+
+                oBtn.onclick=function()
+                {
+                    startMove(oDiv,{width: 1000, height: 200},function(){
+                        alert("a"); //若弹出，则表示定时器关闭
+                    });
+                };
+            }
+        </script>
+    </head>
+    <body>
+        <input id="btn1" type="button" value="move" />
+        <div id="div1"></div>
+    </body>
+</html>

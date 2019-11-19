@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!--闭包的解释-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        //闭包：子函数可以使用父函数的局部变量
+        function aaa() //父函数
+        {
+            var a = 2;
+            function ccc() //子函数
+            {
+                alert(a);
+            }
+            ccc();
+        };
+        aaa();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

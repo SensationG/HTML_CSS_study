@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!--模拟网页选项卡-->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>模拟网页选项卡</title>
+        <style>
+            #div1 .active{
+                background: yellow;
+            }
+            #div1 div{
+                height: 100px;
+                width: 100px;
+                background: rgb(202, 153, 153);
+                border: 2px solid blue;
+                display: none;/* 先隐藏 */
+            }
+        </style>
+        <script>
+            window.onload=function(){
+                //先获取最外层div
+                var odiv = document.getElementById("div1");
+                //获取button/div
+                var btn = odiv.getElementsByTagName("input");
+                var idiv = odiv.getElementsByTagName("div");
+                //给button添加自定义属性值
+                for(var i=0;i<btn.length;i++)
+                {
+                    btn[i].index=i;
+                }
+                //给button添加事件
+                for(var i=0;i<btn.length;i++)
+                {
+                    btn[i].onclick=function()
+                    {
+                        //让所有按钮颜色都隐藏,所有div都隐藏
+                        for(var i=0;i<4;i++){
+                            btn[i].className=""; //把所有class变空
+                            idiv[i].style.display="none";//所有div隐藏
+                        }
+                        //让当前点击的按钮变色，div展示，使用this表示当前事件发生的button
+                        this.className="active";
+                        idiv[this.index].style.display="block";
+                    };
+                }
+            };
+        </script>
+    </head>
+    <body>
+        <!-- 外层套div1 内层再设置默认div 见css -->
+        <div id="div1">
+            <input type="button" class="active" value="选项1"/>
+            <input type="button" value="选项2"/>
+            <input type="button" value="选项3"/>
+            <input type="button" value="选项4"/><br>
+            <div style="display: block;">11111</div>
+            <div>2222</div>
+            <div>33333</div>
+            <div>444</div>
+        </div>
+    </body>
+</html>

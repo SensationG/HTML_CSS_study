@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!-- DOM表格操作 
+    表格排序：需求：点击按钮 表格按id从小到大排序 -->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <script>
+            window.onload=function()
+            {
+                var oTab = document.getElementById("tab1"); 
+                var btn = document.getElementById("btn1");
+            
+                btn.onclick=function()
+                {
+                    //new 一个数组 存放id 才能使用sort
+                    var os = [];
+                    //取出值，赋给数组
+                    for(var i=0;i<oTab.tBodies[0].rows.length;i++)
+                    {
+                        os[i] = oTab.tBodies[0].rows[i]; //提取每个tr
+                    }
+                    //排序
+                    os.sort(function(tr1,tr2){
+                       var n1 = parseInt(tr1.cells[0].innerHTML); //提取每个tr的首个td
+                       var n2 = parseInt(tr2.cells[0].innerHTML);
+
+                       return n1-n2;
+                    });
+                    //appendchild重新添加
+                    for(var i=0;i<os.length;i++)
+                    {
+                        oTab.tBodies[0].appendChild(os[i]);
+                    }
+                };
+            };
+        </script>
+    </head>
+    <body>
+        <!-- 以下是表格的写法 -->
+        <input id="btn1" type="button" value="排序"/>
+        <table id="tab1" border="1" width="500">
+            <thead>
+                <td>ID</td>
+                <td>姓名</td>
+                <td>年龄</td>
+                <td>删除</td>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Blue</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>伟大</td>
+                    <td>23</td>
+                </tr>
+               
+                <tr>
+                    <td>4</td>
+                    <td>我去饿</td>
+                    <td>30</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>请问</td>
+                    <td>23</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>矮戳</td>
+                    <td>23</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>请问去</td>
+                    <td>13</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>阿瓦达</td>
+                    <td>56</td>
+                </tr>
+            </tbody>
+
+        </table>
+    </body>
+</html>

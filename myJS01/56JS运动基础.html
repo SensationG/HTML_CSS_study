@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!-- JS运动基础 使用定时器 -->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style>
+            #div1 {width: 200px;height: 200px; background: red;position: absolute;
+            top: 50px; left: 0px;}
+            /* 必须使用绝对定位position 否则物体无法运动 */
+        </style>
+        <script>
+            var oStart = null;
+            function start()
+            {
+                var oDiv = document.getElementById("div1");
+                var speed = 1; //物体运动速度 越大越快
+                
+                clearInterval(oStart);//保证每次点击按钮只有一个定时器
+
+                //使用定时器使其运动
+                oStart = setInterval(function(){
+                    //传入停止运动的位置 关闭定时器
+                    if(oDiv.offsetLeft>350)
+                    {
+                        clearInterval(oStart);
+                    }
+                    else  //不用else会出现 物体到达位置 每次点击还会向前
+                    {
+                        oDiv.style.left = oDiv.offsetLeft+speed+'px';
+                    }
+                },30);//时间取30，一般不改变
+            }
+        </script>
+    </head>
+    <body>
+        <input id="btn1" type="button" value="开始运动" onclick="start()"/>
+        <div id="div1">
+
+        </div>
+    </body>
+</html>

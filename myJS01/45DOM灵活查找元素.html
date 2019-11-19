@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!-- 通过classname 查找元素 -->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <script>
+            //灵活查找的function
+            function getByClass(uul,cname)
+            {
+                var aResult = []; //new一个数组接收结果
+                var oUl = uul.getElementsByTagName("*");//通配符
+                for(var i=0;i<oUl.length;i++)
+                {
+                    if(oUl[i].className==cname)
+                    {
+                        aResult.push(oUl[i]);//向末尾添加元素
+                    }
+                }
+                return aResult;
+            }
+            window.onload=function()
+            {
+                var oUl = document.getElementById("oul");
+                var aBox = getByClass(oUl,"box");
+                for(var i=0;i<aBox.length;i++)
+                {
+                    aBox[i].style.background="red";
+                }
+            };
+        
+        </script>
+    </head>
+    <body>
+		<ul id="oul">
+			<li class="box"></li>
+			<li></li>
+			<li class="box"></li>
+			<li></li>
+		</ul>
+    </body>
+</html>

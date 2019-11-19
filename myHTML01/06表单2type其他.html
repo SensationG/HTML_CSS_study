@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 1 滑动选择器 -->
+    <input type="range" min="-100" max="100" step="50"/> <!--type="range"一个滑动条 step:每次限制滑动的举例-->
+    <br>
+    <input type="range" min="-100" max="100" step="50" value="-100"/> <!--value 滑动条的初始值-->
+    <br>
+    <!-- type="number" -->
+    <input type="number" min="-100" max="100" step="50" value="-100"/> <!--type="number" 一个数字条-->
+    <br><br>
+
+    <!-- 2 勾选框 -->
+    <!-- 2.1 checkbox 复选框 返回boolean -->
+    <input type="checkbox"/>
+    <br>
+    <!-- 2.2 radio 型选择框 多个radio的name值设置成一致时，只能选择其一-->
+    选一个把！
+    <br>
+    <input type="radio" name="a" checked/>aa <!--value属性不能显示，而是将值传给后台-->
+    <input type="radio" name="a"/>aa  <!--checked属性是默认选中值-->
+    <input type="radio" name="a"/>aa
+    <br><br>
+    <!-- 2.3 下拉选择器 select -->
+    你喜欢吃什么水果？
+    <br>
+    <select>
+        <option>苹果</option>
+        <option>banana</option>
+        <option>西瓜</option>
+    </select>
+    <br><br>
+    <!-- 2.4 下拉选择器＋可自行输入 datalist 类似于搜索的历史记录-->
+    <input type="text" list="datalist">
+    <datalist id="datalist">
+        <option>苹果</option>
+        <option>苹果2</option>
+        <option>苹果3</option>
+    </datalist>
+</body>
+</html>

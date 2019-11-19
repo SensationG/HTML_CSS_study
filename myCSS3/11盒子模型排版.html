@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>盒子模型(页面排版)</title>
+    <style type="text/css">
+        .wrap {
+            display: -webkit-box; /* 实现2个div并排 */
+        }
+        .class1 {
+            border: 1px solid black;
+            background-color: blanchedalmond; /* 给整个盒子设置背景颜色 */
+            padding-top: 100px;  /* 设置上边距（内容content与上border的距离 */
+            padding:100px; /* 只写一个值是设置上下左右边距 可以设置4个值 */
+            background-clip: content-box; /* 设置显示背景颜色的位置 content-box是内容区域 border-box边框 padding-box内边距 */
+            margin: 100px; /* margin设置盒子与边界的距离 */
+        }
+    </style>
+</head>
+<body>
+    <!-- 盒子模型具有的属性：内容(content) (padding) 边框(border) 边界(margin) -->
+    <!-- padding内容与border之间的距离，margin是border之外的最外层 -->
+    <div class="wrap">
+        <div class="class1">盒子模型测试</div> <!--排版使用div标签 里面放内容-->
+        <div class="class1">盒子模型测试</div>
+    </div>
+</body>
+</html>

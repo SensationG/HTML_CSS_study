@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style>
+            body{background:skyblue;}
+            #tab {height:700px;width:440px;background:gray;margin-left:500px;margin-top:10px;position:absolute;}
+            #tab ul{margin-top:20px;}
+            #tab ul li{list-style:none;height:100px;width:100px;background:black;float:left;margin:10px;text-align:center;border:1px solid #000;color:white;}
+            #tab .active{background:white;color:red;}            
+                .text{background:white;height:150px;width:335px;font-size:15px;margin-top:520px;margin-left:50px;position:relative;border:2px solid blue;padding-left:10px;}
+        </style>
+        <script>
+            window.onload=function()
+            {
+                //先获取div中的标签 月份
+                var oDiv = document.getElementById("tab");
+                var aLi = oDiv.getElementsByTagName("li");
+                //获取月份下文字标签
+                var oText = oDiv.getElementsByTagName("div")[0];//使用它的第一个
+                //用数组存储每个月的活动
+                var things = [
+                    "1月i华为hi都会哎",
+                    "2yue sjaojdooiwad",
+                    "3yueaihihwiad",
+                    "4awhjdhiuhqih"
+                ]
+
+                //给所有月份添加事件：当鼠标移入时，颜色变亮,思路与第24相同
+                for(var i=0;i<aLi.length;i++)
+                {
+                    aLi[i].index=i;
+                   aLi[i].onmouseover=function()
+                   {
+                         //先移除所有的颜色
+                        for(var i=0;i<aLi.length;i++)
+                        {
+                            aLi[i].className="";
+                        }
+                        this.className="active";//亮色标记
+                        //文字部分变化 使用innerHTML填充 使用字符串拼接
+                        //调用innerHTML时 会把原div中的内容替换
+                        oText.innerHTML="<h2>"+(this.index+1)+"月活动</h2><p>"+things[this.index]+"</p>";
+                   };
+                }          
+            };
+        </script>
+    </head>
+    <body>
+        <div id="tab" class="calendar">
+            <ul> <!--自定义div ul和li-->
+                <li class="active"><h2>1</h2><p>JAN</p></li>
+                <li><h2>2</h2><p>FER</p></li>
+                <li><h2>3</h2><p>MAR</p></li>
+                <li><h2>4</h2><p>APR</p></li>
+                <li><h2>5</h2><p>MAY</p></li>
+                <li><h2>6</h2><p>JUN</p></li>
+                <li><h2>7</h2><p>JUL</p></li>
+                <li><h2>8</h2><p>SEP</p></li>
+                <li><h2>9</h2><p>OCT</p></li>
+                <li><h2>10</h2><p>NOV</p></li>
+                <li><h2>11</h2><p>DEC</p></li>
+                <li><h2>12</h2><p>NOV</p></li>
+            </ul>
+            <!-- 等会要往这个div中填 根据月份变换的文字 -->
+            <div class="text">
+                <h2>1月活动</h2>
+                <p>快过年了，大家可以商量着去哪里玩~</p>
+            </div>
+        </div>
+    </body>
+</html>

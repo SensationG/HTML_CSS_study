@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>CSS选择器</title>
+        <style type="text/css">
+            /* 根据类型选择元素--所有a标签的内容样式 */
+            a {
+                font-size: 40px;
+                color: lightcoral;
+            }
+            /* 选择所有元素 使用 * 号 
+            * {
+                font-size: 40px;
+                color: lightcoral;
+            } */
+            /* 根据类选择元素 */
+            .class1 {
+                font-size: 30px;
+                color: lightgreen;
+            }
+            /* 根据id选择元素 */
+            #id1 {
+                font-size: 50px;
+                color: maroon;
+            }
+            /* 属性选择元素 */
+            [href] {
+                font-size: 15px;
+                color: mediumaquamarine;
+            }
+            /* 属性选择元素 精确到-属性名+属性值 
+            [href="1.html"] {
+                font-size: 15px;
+                color: mediumaquamarine;
+            }*/
+            /* 冒号选择器 只有在鼠标定位时触发 这里举例a标签 所有a标签都会触发*/
+            a:hover {
+                font-size: 80px;
+                color: midnightblue;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- 使用CSS基本选择器
+            1.选择所有元素
+            2.根据类型选择元素
+            3.根据类选择元素
+            4.根据id选择元素
+            5.根据属性选择元素
+            6.其他选择器
+        -->
+
+        <a>根据类型选择元素</a>
+        <p>根据类型选择元素</p> 
+
+        <a class="class1">类选择元素</a> <!--class是一个全局属性：即基本上所有元素都有class属性-->
+        <p class="class1">类选择元素</p> <!--不管任何元素，只要class一样，都会实现该css的设定-->
+
+        <p id="id1">id选择元素</p> <!--id 是身份证号 只能唯一 不能与其他元素共用id 而class可以 class与id都有时 class优先-->
+
+        <a href="1.html">属性选择元素</a> <!--含有目标属性的元素都会有该css效果 -->
+        <a href="2.html">属性选择元素</a> <!--属性选择元素可以具体到属性名+属性值-->
+        <a >属性选择元素</a>
+
+
+    </body>
+</html>

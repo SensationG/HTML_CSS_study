@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>使用input元素获取各种值</title>
+</head>
+<body>
+    <!-- 1 用input元素限制字符串格式 因为兼容问题 不好用-->
+    <input type="email"/>
+    <input type="tel"/>
+    <input type="url"/>
+    <br>
+    <!-- 2 年月日选择器 供用户输入时间-->
+    年月日选择： <br>
+    <input type="date"/>
+    <br>
+    <!-- 3 颜色选择题 -->
+    颜色选择：
+    <input type="color">
+    <br>
+    <!-- 4 图片按钮 提供鼠标点击的坐标，但要写在form中-->
+    <form>
+    <input type="image" src="img\asd.png" width="80px">
+    <br>
+    <!-- 5 input上传文件 上传后可提交表单 -->
+    <input type="file">
+    </form>
+</body>
+</html>
